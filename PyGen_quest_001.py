@@ -24,21 +24,21 @@ flights — список кортежей, каждый из которых со
 '''
 
 def journey_ends(w):
-    st = w[0][0]
-    fn = w[0][1]
-    i = 0
-    del w[0]
-    while len(w) > 0:
-        if w[i][0] == fn:
-            fn = w[i][1]
-            del w[i]
-            i = 0
-        elif w[i][1] == st:
-            st = w[i][0]
-            del w[i]
-            i = 0
-        else:
-            i += 1
+    ds = {}
+    df = set()
+    for c in w:
+        ds[c[0]] = c[1]
+        df.add(c[1])
+    
+    for c in ds:
+        if c not in df:
+            st = c
+            fn = ds[c]
+            break
+    
+    while fn in ds:
+        fn = ds[fn]
+    
     return st, fn
 
 
