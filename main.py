@@ -1,5 +1,3 @@
-''' 
-'''
 import subprocess
 import sys
 
@@ -36,4 +34,9 @@ def speeds_up_git_routine(text_4_commit='routine'):
         print(f'Ошибка при выполнении команды: {e}')
         sys.exit(1)
 
-speeds_up_git_routine(input())
+if len(sys.argv) == 1:
+    text_from_user = input('Введите текст для комита')
+else:
+    text_from_user = ' '.join(sys.argv[1:])
+
+speeds_up_git_routine(text_from_user)
