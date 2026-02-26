@@ -1,5 +1,7 @@
-import os
+import sys
 
-system_path = os.environ.get('PATH')
+print("--- 'План поиска' модулей (sys.path) ---")
 
-print(1.25*12)
+# Просто перебираем список и выводим каждый пункт плана
+for index, folder in enumerate(sys.path):
+    print(f"Шаг {index}: Проверить папку '{folder}'")

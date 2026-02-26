@@ -1,5 +1,6 @@
 import subprocess
 import sys
+from datetime import date
 
 def speeds_up_git_routine(text_4_commit='routine'):
     try:
@@ -35,7 +36,7 @@ def speeds_up_git_routine(text_4_commit='routine'):
         sys.exit(1)
 
 if len(sys.argv) == 1:
-    text_from_user = input('Введите текст для комита')
+    text_from_user = f'routine {date.today()}'    #  input('Введите текст для комита')
 else:
     text_from_user = ' '.join(sys.argv[1:])
 
