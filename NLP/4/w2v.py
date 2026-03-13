@@ -1,14 +1,17 @@
 import random
+import numpy as np
 
 RANDOM_STATE = 42
 
 def gv_spliter(text2tok):  #  tokenizer
     return text2tok.split()
 
+
+random.seed(RANDOM_STATE)
 def init_random_vec(tok_list2vec, vec_dimension):
     token_vectors = {}
     for token in tok_list2vec:
-        token_vectors[token] = [random.uniform(0, 1) for _ in range(vec_dimension)]
+        token_vectors[token] = np.array([random.uniform(0, 1) for _ in range(vec_dimension)])
     return token_vectors
 
 def train(data: str):
